@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next.js: debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm run dev --experimental-https"
+    },
+    {
+      "name": "Next.js: debug client-side",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://localhost:3000",
+      "userDataDir": "${env:LOCALAPPDATA}\\Google\\Chrome\\User Data\\Default"
+    },
+    {
+      "name": "Next.js: debug full stack",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm run dev --experimental-https",
+      "serverReadyAction": {
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
+    }
+  ]
+}
